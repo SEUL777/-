@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Regi Moreno</title>
+    <style>
+        .paso {
+        display: none;
+        text-align: center;
+}
+        .paso.activo {
+        display: block;
+}
+
+        body {
+            background-image: url("lol.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            margin: auto;
+        }
+
+        .zona-botones {
+            position: relative;
+            height: 200px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #si { 
+            background-color: #ff9aa2;
+            border: none;
+            border-radius: 12px;
+            margin: 8px;
+        }
+        #no {
+            background-color: red;
+            transition: transform 0.15s ease-in-out;
+            border: none;
+            border-radius: 12px;
+            z-index: 10;
+        }
+        #mensaje {
+            text-align: center;
+            font-size: 56px;
+            color: rgb(241, 188, 252);
+            font-weight: bold;
+        }
+
+        #resultado {
+            display: none;
+            text-align: center;
+        }
+        #paso1 {
+            position:relative;
+        }
+
+        .foto {
+            position:absolute;
+        }
+        
+        .foto.uno{
+            width: 200px;
+            bottom: 100px;
+            left: 500px;
+        }
+
+        .foto.dos{
+            width: 300px;
+            right: 90px;
+            top: 50px;
+        }
+
+        .foto.tres{
+            width: 150px;
+            bottom: 450px;
+            left: 690px;
+        }
+    
+        .foto.cuatro{
+            width: 300px;
+            bottom: 200px;
+            left: 250px;
+        }
+
+        .foto.cinco{
+            width: 300px;
+            bottom: 200px;
+            right: 250px;
+        }
+
+        .foto.seis{
+            width: 250px;
+            bottom: 300px;
+            left: 200px;
+        }
+
+        .foto.siete{
+            width: 50px;
+            top: 300px;
+            left: 600px;
+        }
+
+        .foto.ocho{
+            width: 250px;
+            bottom: 200px;
+            left: 150px;
+        }
+
+        .foto.nueve{
+            width: 200px;
+            bottom: 500px;
+            right: 100px;
+        }
+
+        .foto.diez{
+            width: 200px;
+            top: 350px;
+            left: 250px;
+        }
+
+        .foto.once{
+            width: 200px;
+            bottom: 100px;
+            right: 500px;
+        }
+
+
+        .gif {
+            position: absolute;
+            width: 300px;
+        }
+       .gif.uno {
+            top: -250px;
+            left: 350px;
+            width: 450px;
+        }
+
+        .gif.dos {
+            bottom: 150px;
+            right: 500px;
+        }
+
+        .gif.tres {
+            top: 200px;
+            right: -500px;
+            width: 150px;
+        }
+
+        .gif.cuatro {
+            bottom: 0px;
+            right: 0px;
+            width: 150px;
+        }
+
+        .gif.cinco {
+            bottom: 150px;
+            right: 300px;
+            width: 200px;
+        }
+
+        .gif.seis{
+            top:100px;
+            right:200px;
+            width:150px;
+        }
+
+        .gif.siete{
+            bottom: 0px;
+            right: 150px;
+            width: 150px;
+        }
+
+        .opcion {
+            background-color: #ff9aa2;
+            border: none;
+            border-radius: 12px;
+            margin: 8px;
+            padding: 12px 22px;
+            font-size: 16px;
+        }
+
+        .opcion:hover {
+            background-color: #ff6f91;
+        }
+
+        .opcion:active {
+            transform: scale(0.95);
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="contenedor">
+        <h1>Will you be my Valentine?</h1>
+        <div class="zona-botones">
+            <button id="si">Yes</button>
+            <button id="no">No</button>
+            <img class="foto uno" src="kitty.png" alt="foto">
+            <img class="foto dos" src="foto2.png" alt="foto">
+        </div>
+    </div>
+   
+    <div id="paso1" class="paso">
+        <h1 id="mensaje">VAMOOOS</h1>
+        <button class="opcion" onclick="seleccionar('dale click')">Dale click :)</button>
+        <img class="gif uno" src="gif.gif" alt="gif">
+        <img class="gif dos" src="gif2.gif" alt="gif">
+        <img class="gif tres" src="gif3.gif" alt="gif">
+    </div>
+
+    <div id="paso2" class="paso">
+        <h2>¿Cuándo prefieres?</h2>
+        <button class="opcion" onclick="seleccionar('hora', 'temprano')">Temprano (como 5:00p.m.)</button>
+        <button class="opcion" onclick="seleccionar('hora', 'tarde')">Tarde (como 6:30p.m.)</button>
+        <img class="foto tres" src="foto3.png" alt="foto">
+        <img class="foto cuatro" src="foto4.png" alt="foto">
+        <img class="foto cinco" src="foto5.png" alt="foto">
+    </div>
+
+    <div id="paso3" class="paso">
+        <h2>Pensaba ir a Sushi Shop, está a 10 minutos de tu casa, ¿te gusta?</h2>
+        <button class = "opcion" onclick="seleccionar('lugar', 'si')">VALE SI</button>
+        <button class = "opcion" onclick="seleccionar('lugar', 'no')">mm no lol</button>
+        <img class="foto seis" src="foto6.png" alt="foto">
+        <img class="foto siete" src="foto7.png" alt="foto">
+        <img class="gif cuatro" src="gif4.gif" alt="gif">
+        <img class="gif seis" src="gif6.gif" alt="gif">
+        <img class="foto once" src="foto11.png" alt="foto">
+
+    </div>
+
+    <div id="paso4" class="paso">
+    <h2>¿Qué quieres hacer después?</h2>
+    <button class = "opcion" onclick="seleccionar('actividad', 'Postre')">Vamos por postree</button>
+    <button class = "opcion" onclick="seleccionar('actividad', 'Parque')">Vamos a un parque</button>
+    <button class = "opcion" onclick="seleccionar('actividad', 'Parque Y POSTRE')">Vamos a un parque CON postre</button>
+    <h4>(No se ni pq puse las otras 2 opciones JAJAJA)</h4>
+    <img class="foto ocho" src="foto8.png" alt="foto">
+    <img class="foto nueve" src="foto9.png" alt="foto">
+    <img class="gif siete" src = gif7.gif alt="gif">
+
+</div>
+
+<div id="final" class="paso">
+    <h1>Entonces:</h1>
+    <p id="resumen"></p>
+    <h2>No puedo esperar a verte :)</h2>
+    <h6>(Mandame foto de esto JJAJAJ)</h6>
+    <img class="foto diez" src="foto10.png" alt="foto">
+    <img class="gif cinco" src="gif5.gif" alt="gif">
+</div>
+
+<script>
+
+let posX = 0;
+let posY = 0;
+let pasoActual = 1;
+
+        const botonNo = document.getElementById("no");
+        const mensaje = document.getElementById("mensaje");
+        const botonSi = document.getElementById("si");
+        const contenedor = document.querySelector(".contenedor");
+        const zonabotones = document.querySelector(".zona-botones");
+        const respuestas = {
+    hora: "",
+    postre: "",
+    bebida: ""
+};
+
+const distanciaminima = 120;
+botonNo.addEventListener("mouseover", () => {
+        botonNo.style.position = "absolute";
+        botonNo.style.left = botonNo.offsetLeft + "px";
+        botonNo.style.top = botonNo.offsetTop + "px";
+
+
+    const maxX = zonabotones.clientWidth - botonNo.offsetWidth;
+    const maxY = zonabotones.clientHeight - botonNo.offsetHeight;
+
+    let nuevoX, nuevoY, distancia;
+    do {
+        nuevoX = Math.random() * maxX;
+        nuevoY = Math.random() * maxY;
+        
+        const dx = nuevoX - posX;
+        const dy = nuevoY - posY;
+        distancia = Math.sqrt(dx * dx + dy * dy);
+    }while (distancia < distanciaminima);
+    posX = nuevoX;
+    posY = nuevoY;
+
+    botonNo.style.transform = `translate(${nuevoX}px, ${nuevoY}px)`;
+});
+
+botonSi.addEventListener("click", () => {
+    contenedor.style.display = "none";
+    document.getElementById("paso1").classList.add("activo");
+});
+
+function seleccionar(tipo, valor) {
+    respuestas[tipo] = valor;
+    avanzar();
+}
+
+function avanzar() {
+    document.getElementById(`paso${pasoActual}`).classList.remove("activo");
+    pasoActual++;
+
+    if (pasoActual <= 4) {
+        document.getElementById(`paso${pasoActual}`).classList.add("activo");
+    } else {
+        mostrarResultado();
+    }
+}
+
+function mostrarResultado() {
+    document.getElementById("final").classList.add("activo");
+
+    document.getElementById("resumen").innerHTML = `
+        Hora: ${respuestas.hora} <br>
+        Comemos sushi: ${respuestas.lugar} <br>
+        Y al final: ${respuestas.actividad}
+    `;
+}
+    </script>
+
+</body>
+</html>
